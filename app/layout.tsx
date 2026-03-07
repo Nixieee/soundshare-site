@@ -6,8 +6,20 @@ import { ThemeProvider } from '@/components/theme-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'SoundShare - Audio Sharing for macOS',
-  description: 'Share audio with multiple Bluetooth devices on macOS. Seamless, synchronized listening for everyone.',
+  title: 'SoundShare - Connect Two AirPods to One MacBook',
+  description:
+    'SoundShare is a macOS audio sharing app that helps you connect two AirPods or multiple Bluetooth headphones to one Mac with synchronized playback.',
+  keywords: [
+    'connect two AirPods to one MacBook',
+    'how to connect two AirPods to one MacBook',
+    'connect two Bluetooth headphones on Mac',
+    'play audio through multiple Bluetooth devices Mac',
+    'audio sharing macOS',
+    'share audio on Mac',
+    'macOS audio sharing app',
+    'multi output audio Mac',
+    'Bluetooth audio splitter Mac',
+  ],
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
