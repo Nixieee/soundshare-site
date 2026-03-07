@@ -11,11 +11,11 @@ export function HeroSection() {
         <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
-              <h1 className="text-2xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl/none text-primary">
-                Identify artwork with a simple photo
+              <h1 className="text-2xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl/none liquid-blue-text">
+                Share audio with multiple devices on macOS
               </h1>
               <p className="max-w-[600px] text-muted-foreground text-sm sm:text-base md:text-xl">
-              Our art identifier app uses advanced AI to help you identify, authenticate, and learn about artworks and artistic pieces. Simply take a photo and discover the artist, style, period, and history behind your artistic treasures.
+                SoundShare brings seamless audio sharing to macOS, allowing you to connect multiple Bluetooth audio devices simultaneously. Share music, podcasts, or videos with friends and enjoy perfectly synchronized audio with ease.
               </p>
             </div>
             <div className="flex flex-row flex-wrap gap-3">
@@ -29,19 +29,19 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm">
               <div className="flex items-center gap-1">
                 <div className="h-2 w-2 rounded-full bg-primary" />
-                <span>Free download</span>
+                <span>macOS exclusive</span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="h-2 w-2 rounded-full bg-primary" />
-                <span>In-app purchases available</span>
+                <span>Perfectly synchronized audio</span>
               </div>
             </div>
           </div>
           <div className="relative mt-4 lg:mt-0 mx-auto lg:mx-0 max-w-[350px] lg:max-w-none">
             <div className="relative rounded-xl overflow-hidden">
-              <Image 
-                src="/artidentifier_hero.webp" 
-                alt="art identifier app interface showing artwork identification"
+              <Image
+                src="/soundshare-hero.png"
+                alt="SoundShare app interface showing audio sharing on macOS"
                 width={600}
                 height={400}
                 className="object-cover w-full h-auto"

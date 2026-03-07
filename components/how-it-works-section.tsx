@@ -1,5 +1,4 @@
-import Image from "next/image"
-import { Camera, Database, BookOpen } from "lucide-react"
+import { Bluetooth, Users, Headphones } from "lucide-react"
 
 export function HowItWorksSection() {
   return (
@@ -7,69 +6,42 @@ export function HowItWorksSection() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary font-medium">How It Works</div>
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-primary">
-              Identify artworks in three simple steps
+            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium liquid-blue-text">How It Works</div>
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight liquid-blue-text">
+              Share audio in three simple steps
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Our intuitive process makes artwork identification and learning effortless.
+              Start sharing audio with multiple devices in minutes with our intuitive interface.
             </p>
           </div>
         </div>
         <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3">
           <div className="flex flex-col items-center space-y-4 rounded-lg border border-primary/20 bg-card p-6 text-center shadow-sm">
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/20">
-              <Camera className="h-8 w-8 text-primary" />
+              <Bluetooth className="h-8 w-8 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-primary/90">1. Take a Photo</h3>
+            <h3 className="text-xl font-bold liquid-blue-text">1. Connect Devices</h3>
             <p className="text-muted-foreground">
-              Simply snap a picture of your artwork using your smartphone camera or upload an existing photo from your gallery.
+              Open SoundShare and pair your Bluetooth headphones, speakers, or earbuds to your Mac using the familiar macOS Bluetooth interface.
             </p>
-            <div className="rounded-xl border border-primary/20 bg-card overflow-hidden shadow-lg">
-              <Image
-                src="/taking-photo.png"
-                alt="Taking a photo of an artwork"
-                width={300}
-                height={600}
-                className="w-full h-auto"
-              />
-            </div>
           </div>
           <div className="flex flex-col items-center space-y-4 rounded-lg border border-primary/20 bg-card p-6 text-center shadow-sm">
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/20">
-              <Database className="h-8 w-8 text-primary" />
+              <Users className="h-8 w-8 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-primary/90">2. Get Results</h3>
+            <h3 className="text-xl font-bold liquid-blue-text">2. Enable Audio Sharing</h3>
             <p className="text-muted-foreground">
-              Our AI analyzes your photo and provides identification, artist information, art period, historical context, and similar artworks from our database.
+              Select multiple devices from the connected list and enable audio sharing. SoundShare automatically manages the connections and synchronization.
             </p>
-            <div className="rounded-xl border border-primary/20 bg-card overflow-hidden shadow-lg">
-              <Image
-                src="/analyze.png"
-                alt="Analyzing artwork photo"
-                width={300}
-                height={600}
-                className="w-full h-auto"
-              />
-            </div>
           </div>
           <div className="flex flex-col items-center space-y-4 rounded-lg border border-primary/20 bg-card p-6 text-center shadow-sm">
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/20">
-              <BookOpen className="h-8 w-8 text-primary" />
+              <Headphones className="h-8 w-8 text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-primary/90">3. Learn More</h3>
+            <h3 className="text-xl font-bold liquid-blue-text">3. Enjoy Together</h3>
             <p className="text-muted-foreground">
-              Explore detailed information about your artwork's history, style, artist, and cultural significance to become a more informed art enthusiast.
+              Start playing music, videos, or podcasts on your Mac. Everyone connected will hear perfectly synchronized audio in real-time.
             </p>
-            <div className="rounded-xl border border-primary/20 bg-card overflow-hidden shadow-lg">
-              <Image
-                src="/result.png"
-                alt="Get artwork identification result"
-                width={300}
-                height={600}
-                className="w-full h-auto"
-              />
-            </div>
           </div>
         </div>
       </div>

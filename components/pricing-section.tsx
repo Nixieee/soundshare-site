@@ -17,8 +17,8 @@ export function PricingSection() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary font-medium">Pricing</div>
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-primary">
+            <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium liquid-blue-text">Pricing</div>
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight liquid-blue-text">
               Choose the plan that's right for you
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -29,7 +29,7 @@ export function PricingSection() {
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-3">
           <Card className="flex flex-col border-primary/20 bg-card/80 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="text-primary/90">Free</CardTitle>
+              <CardTitle className="liquid-blue-text">Free</CardTitle>
               <div className="text-3xl font-bold">$0</div>
               <CardDescription>Perfect for beginners</CardDescription>
             </CardHeader>
@@ -64,7 +64,7 @@ export function PricingSection() {
           <Card className="flex flex-col border-primary bg-card/80 backdrop-blur-sm shadow-md relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-3 py-1 text-xs font-medium rounded-bl-lg">Popular</div>
             <CardHeader>
-              <CardTitle className="text-primary/90">Premium</CardTitle>
+              <CardTitle className="liquid-blue-text">Premium</CardTitle>
               <div className="text-3xl font-bold">$7.99<span className="text-sm font-normal">/month</span></div>
               <CardDescription>For enthusiasts and collectors</CardDescription>
             </CardHeader>
@@ -102,7 +102,7 @@ export function PricingSection() {
           </Card>
           <Card className="flex flex-col border-primary/20 bg-card/80 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="text-primary/90">Annual</CardTitle>
+              <CardTitle className="liquid-blue-text">Annual</CardTitle>
               <div className="text-3xl font-bold">$59.99<span className="text-sm font-normal">/year</span></div>
               <CardDescription>Save 37% with annual billing</CardDescription>
             </CardHeader>

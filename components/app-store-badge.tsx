@@ -16,13 +16,13 @@ export function AppStoreBadge({ className, size = "medium" }: AppStoreBadgeProps
   const { width, height } = dimensions[size]
   
   return (
-    <Link 
-      href="https://apps.apple.com/us/app/ai-art-identifier/id6747391248" 
+    <Link
+      href="https://apps.apple.com/us/app/soundshare-audio-sharing/id6742040464"
       className={`relative block ${className}`}
       style={{ width, height }}
     >
-      <Image 
-        src="/app-store-badge.svg" 
+      <Image
+        src="/app-store-badge.svg"
         alt="Download on the App Store"
         fill
         className="object-contain"

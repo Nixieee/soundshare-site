@@ -6,8 +6,8 @@ import { ThemeProvider } from '@/components/theme-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Art Identifier App',
-  description: 'Identify, catalog, and learn about artworks with AI-powered recognition',
+  title: 'SoundShare - Audio Sharing for macOS',
+  description: 'Share audio with multiple Bluetooth devices on macOS. Seamless, synchronized listening for everyone.',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
