@@ -1,12 +1,9 @@
-import Link from "next/link"
-import Image from "next/image"
-
-import { Button } from "@/components/ui/button"
+import { AppStoreBadge } from "@/components/app-store-badge"
 
 export function CTASection() {
   return (
     <section className="bg-primary text-primary-foreground py-16 md:py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/audio-background.jpg')] bg-cover bg-center opacity-10"></div>
+      <div className="absolute inset-0 opacity-20 [background:radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.22),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.16),transparent_35%)]"></div>
       <div className="container px-4 md:px-6 relative z-10">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
@@ -18,14 +15,7 @@ export function CTASection() {
             </p>
           </div>
           <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
-            <Link href="https://apps.apple.com/us/app/soundshare-audio-sharing/id6742040464" className="w-[170px] h-[50px] relative">
-              <Image
-                src="/app-store-badge.svg"
-                alt="Download on the App Store"
-                fill
-                className="object-contain"
-              />
-            </Link>
+            <AppStoreBadge size="medium" />
           </div>
           <p className="text-sm text-primary-foreground/80">Available for macOS</p>
         </div>

@@ -34,6 +34,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/soundshare-hero-1200.webp"
+          imageSrcSet="/soundshare-hero-800.webp 800w, /soundshare-hero-1200.webp 1200w, /soundshare-hero-1600.webp 1600w"
+          imageSizes="(max-width: 1023px) min(90vw, 350px), 600px"
+        />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"

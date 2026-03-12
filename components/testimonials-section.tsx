@@ -26,9 +26,10 @@ export function TestimonialsSection() {
               <div className="flex items-start gap-4">
                 <div className="relative h-10 w-10 overflow-hidden rounded-full border border-primary/20">
                   <Image
-                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop"
-                    alt="Margaret T."
+                    src="/testimonial-emily.webp"
+                    alt="Emily R."
                     fill
+                    sizes="40px"
                     className="object-cover"
                   />
                 </div>
@@ -38,7 +39,7 @@ export function TestimonialsSection() {
                 </div>
               </div>
               <blockquote className="mt-4 border-l-2 border-primary/30 pl-4 italic text-muted-foreground">
-                "Finally! I've been waiting for this feature on Mac. Now my partner and I can watch movies together with our own AirPods. The synchronization is perfect, and it's so much better than using a splitter or sharing a single pair of headphones."
+                &ldquo;Finally! I&apos;ve been waiting for this feature on Mac. Now my partner and I can watch movies together with our own AirPods. The synchronization is perfect, and it is so much better than using a splitter or sharing a single pair of headphones.&rdquo;
               </blockquote>
             </CardContent>
           </Card>
@@ -47,9 +48,10 @@ export function TestimonialsSection() {
               <div className="flex items-start gap-4">
                 <div className="relative h-10 w-10 overflow-hidden rounded-full border border-primary/20">
                   <Image
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+                    src="/testimonial-david.webp"
                     alt="David K."
                     fill
+                    sizes="40px"
                     className="object-cover"
                   />
                 </div>
@@ -59,7 +61,7 @@ export function TestimonialsSection() {
                 </div>
               </div>
               <blockquote className="mt-4 border-l-2 border-primary/30 pl-4 italic text-muted-foreground">
-                "SoundShare is a game-changer for my workflow. I can share audio previews with clients using multiple headphones during review sessions. The audio stays perfectly in sync, making collaboration so much easier. Exactly what macOS was missing!"
+                &ldquo;SoundShare is a game-changer for my workflow. I can share audio previews with clients using multiple headphones during review sessions. The audio stays perfectly in sync, making collaboration so much easier. Exactly what macOS was missing!&rdquo;
               </blockquote>
             </CardContent>
           </Card>
@@ -68,9 +70,10 @@ export function TestimonialsSection() {
               <div className="flex items-start gap-4">
                 <div className="relative h-10 w-10 overflow-hidden rounded-full border border-primary/20">
                   <Image
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop"
+                    src="/testimonial-sarah.webp"
                     alt="Sarah L."
                     fill
+                    sizes="40px"
                     className="object-cover"
                   />
                 </div>
@@ -80,7 +83,7 @@ export function TestimonialsSection() {
                 </div>
               </div>
               <blockquote className="mt-4 border-l-2 border-primary/30 pl-4 italic text-muted-foreground">
-                "Love this app! My roommate and I use it to watch shows together on my MacBook without disturbing others. The setup is super simple and it works with all our different Bluetooth headphones. Highly recommend for anyone sharing a Mac!"
+                &ldquo;Love this app! My roommate and I use it to watch shows together on my MacBook without disturbing others. The setup is super simple and it works with all our different Bluetooth headphones. Highly recommend for anyone sharing a Mac!&rdquo;
               </blockquote>
             </CardContent>
           </Card>

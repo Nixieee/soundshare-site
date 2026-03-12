@@ -19,7 +19,7 @@ export function PricingSection() {
           <div className="space-y-2">
             <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium liquid-blue-text">Pricing</div>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight liquid-blue-text">
-              Choose the plan that's right for you
+              Choose the plan that is right for you
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               From casual collectors to serious dealers, we have options for everyone.

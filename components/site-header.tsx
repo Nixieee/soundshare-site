@@ -1,10 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
-import { BookOpen } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
+import { AppStoreBadge } from "@/components/app-store-badge"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export function SiteHeader() {
@@ -29,14 +27,7 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Link href="https://apps.apple.com/us/app/soundshare-audio-sharing/id6742040464" className="w-[120px] h-[40px] relative">
-            <Image
-              src="/app-store-badge.svg"
-              alt="Download on the App Store"
-              fill
-              className="object-contain"
-            />
-          </Link>
+          <AppStoreBadge size="small" priority />
         </div>
       </div>
     </header>

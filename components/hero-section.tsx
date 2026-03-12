@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
@@ -19,7 +18,7 @@ export function HeroSection() {
               </p>
             </div>
             <div className="flex flex-row flex-wrap gap-3">
-              <AppStoreBadge size="medium" />
+              <AppStoreBadge size="medium" priority />
               <Button size="lg" variant="outline" asChild className="border-primary/50 hover:bg-primary/10 hover:text-primary">
                 <Link href="#features">
                   Learn More
@@ -39,14 +38,23 @@ export function HeroSection() {
           </div>
           <div className="relative mt-4 lg:mt-0 mx-auto lg:mx-0 max-w-[350px] lg:max-w-none">
             <div className="relative rounded-xl overflow-hidden">
-              <Image
-                src="/soundshare-hero.png"
-                alt="SoundShare app interface showing audio sharing on macOS"
-                width={600}
-                height={400}
-                className="object-cover w-full h-auto"
-                priority
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet="/soundshare-hero-800.webp 800w, /soundshare-hero-1200.webp 1200w, /soundshare-hero-1600.webp 1600w"
+                  sizes="(max-width: 1023px) min(90vw, 350px), 600px"
+                />
+                <img
+                  src="/soundshare-hero-1200.jpg"
+                  alt="SoundShare app interface showing audio sharing on macOS"
+                  width={1200}
+                  height={780}
+                  className="object-cover w-full h-auto"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                />
+              </picture>
             </div>
           </div>
         </div>
