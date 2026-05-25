@@ -11,10 +11,10 @@ export function HeroSection() {
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <h1 className="text-2xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl/none liquid-blue-text">
-                Share audio with multiple devices on macOS
+                Connect multiple AirPods to one Mac
               </h1>
               <p className="max-w-[600px] text-muted-foreground text-sm sm:text-base md:text-xl">
-                Need to connect two AirPods to one MacBook? SoundShare brings seamless audio sharing to macOS, letting you connect multiple Bluetooth audio devices at once. Share music, podcasts, or videos with friends and enjoy perfectly synchronized audio with ease.
+                SoundShare brings seamless audio sharing to macOS, letting you connect two AirPods or multiple Bluetooth headphones to one MacBook at once. Share music, podcasts, calls, or videos with friends and enjoy synchronized audio with ease.
               </p>
             </div>
             <div className="flex flex-row flex-wrap gap-3">

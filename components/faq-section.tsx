@@ -74,6 +74,14 @@ export function FAQSection() {
             </AccordionItem>
             <AccordionItem value="item-7">
               <AccordionTrigger className="text-left text-base font-medium">
+                Is SoundShare like iPhone Audio Sharing for Mac?
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Yes. SoundShare is made for Mac users who want the shared-listening experience people expect from AirPods on iPhone and iPad. It gives macOS a simple way to share one Mac&apos;s audio with multiple listeners.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-8">
+              <AccordionTrigger className="text-left text-base font-medium">
                 How is my privacy protected?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">

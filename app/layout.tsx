@@ -6,12 +6,21 @@ import { ThemeProvider } from '@/components/theme-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'SoundShare - Connect Two AirPods to One MacBook',
+  metadataBase: new URL('https://soundshare.app'),
+  title: {
+    default: 'SoundShare - Connect Multiple AirPods to One Mac',
+    template: '%s | SoundShare',
+  },
   description:
-    'SoundShare is a macOS audio sharing app that helps you connect two AirPods or multiple Bluetooth headphones to one Mac with synchronized playback.',
+    'SoundShare helps you connect two AirPods or multiple Bluetooth headphones to one Mac with synchronized system-wide audio for music, movies, calls, and podcasts.',
+  alternates: {
+    canonical: '/',
+  },
   keywords: [
+    'connect multiple AirPods to Mac',
     'connect two AirPods to one MacBook',
     'how to connect two AirPods to one MacBook',
+    'how to connect multiple AirPods to Mac',
     'connect two Bluetooth headphones on Mac',
     'play audio through multiple Bluetooth devices Mac',
     'audio sharing macOS',
@@ -20,6 +29,29 @@ export const metadata: Metadata = {
     'multi output audio Mac',
     'Bluetooth audio splitter Mac',
   ],
+  openGraph: {
+    type: 'website',
+    url: 'https://soundshare.app/',
+    siteName: 'SoundShare',
+    title: 'SoundShare - Connect Multiple AirPods to One Mac',
+    description:
+      'Use SoundShare to share Mac audio with two AirPods or multiple Bluetooth headphones at the same time.',
+    images: [
+      {
+        url: '/soundshare-hero-1200.jpg',
+        width: 1200,
+        height: 780,
+        alt: 'SoundShare macOS app for sharing audio with multiple Bluetooth devices',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SoundShare - Connect Multiple AirPods to One Mac',
+    description:
+      'Share Mac audio with two AirPods or multiple Bluetooth headphones at the same time.',
+    images: ['/soundshare-hero-1200.jpg'],
+  },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
