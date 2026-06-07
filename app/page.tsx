@@ -7,6 +7,7 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { SiteFooter } from "@/components/site-footer"
+import { GuideLinksSection } from "@/components/guide-links-section"
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -25,6 +26,17 @@ const structuredData = {
         "@type": "Offer",
         availability: "https://schema.org/InStock",
         url: "https://apps.apple.com/us/app/soundshare-audio-sharing/id6742040464",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://soundshare.app/#website",
+      name: "SoundShare",
+      url: "https://soundshare.app/",
+      description:
+        "SoundShare helps Mac users share audio with two AirPods or multiple Bluetooth headphones.",
+      publisher: {
+        "@id": "https://soundshare.app/#app",
       },
     },
     {
@@ -72,6 +84,7 @@ export default function Home() {
         <HeroSection />
         <FeaturesSection />
         <HowItWorksSection />
+        <GuideLinksSection />
         <TestimonialsSection />
         <FAQSection />
         <CTASection />

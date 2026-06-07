@@ -40,6 +40,7 @@ export default function MacAudioOutputMultipleDevicesPage() {
       eyebrow="Mac audio output"
       title="How to play Mac audio through multiple devices"
       description="There are two common paths: use SoundShare for AirPods and Bluetooth headphones, or use macOS Audio MIDI Setup for more manual audio routing."
+      pathname="/mac-audio-output-multiple-devices/"
       faqs={faqs}
       relatedGuides={coreRelatedGuides.filter((guide) => guide.href !== "/mac-audio-output-multiple-devices")}
     >

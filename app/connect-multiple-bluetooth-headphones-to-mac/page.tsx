@@ -40,6 +40,7 @@ export default function ConnectMultipleBluetoothHeadphonesPage() {
       eyebrow="Bluetooth audio on Mac"
       title="How to connect multiple Bluetooth headphones to a Mac"
       description="Pairing multiple Bluetooth devices is not the same as playing synchronized audio through all of them. SoundShare gives Mac users a clearer way to share one audio stream with multiple Bluetooth headphones."
+      pathname="/connect-multiple-bluetooth-headphones-to-mac/"
       faqs={faqs}
       relatedGuides={coreRelatedGuides.filter(
         (guide) => guide.href !== "/connect-multiple-bluetooth-headphones-to-mac"

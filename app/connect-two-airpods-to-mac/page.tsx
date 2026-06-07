@@ -70,6 +70,7 @@ export default function ConnectTwoAirPodsToMacPage() {
       eyebrow="AirPods on Mac"
       title="How to connect two AirPods to one Mac"
       description="macOS can pair with more than one Bluetooth device, but sharing synchronized audio with two AirPods is the part that usually gets frustrating. SoundShare gives Mac users a simple shared-listening flow for AirPods and other Bluetooth headphones."
+      pathname="/connect-two-airpods-to-mac/"
       faqs={faqs}
       relatedGuides={coreRelatedGuides.filter((guide) => guide.href !== "/connect-two-airpods-to-mac")}
     >

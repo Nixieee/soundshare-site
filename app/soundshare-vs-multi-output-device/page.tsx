@@ -40,6 +40,7 @@ export default function SoundShareVsMultiOutputDevicePage() {
       eyebrow="Comparison"
       title="SoundShare vs macOS Multi-Output Device"
       description="Both can help route Mac audio, but they are built for different people. SoundShare is for simple Bluetooth shared listening; Multi-Output Device is a more manual macOS audio tool."
+      pathname="/soundshare-vs-multi-output-device/"
       faqs={faqs}
       relatedGuides={coreRelatedGuides.filter((guide) => guide.href !== "/soundshare-vs-multi-output-device")}
     >

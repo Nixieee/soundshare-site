@@ -19,6 +19,7 @@ interface SEOGuideLayoutProps {
   title: string
   description: string
   eyebrow: string
+  pathname: string
   children: React.ReactNode
   faqs: FAQ[]
   relatedGuides?: RelatedGuide[]
@@ -28,10 +29,12 @@ export function SEOGuideLayout({
   title,
   description,
   eyebrow,
+  pathname,
   children,
   faqs,
   relatedGuides = [],
 }: SEOGuideLayoutProps) {
+  const pageUrl = `https://soundshare.app${pathname}`
   const faqStructuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -44,13 +47,50 @@ export function SEOGuideLayout({
       },
     })),
   }
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: title,
+        description,
+        author: {
+          "@type": "Organization",
+          name: "SoundShare",
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "SoundShare",
+        },
+        mainEntityOfPage: pageUrl,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "SoundShare",
+            item: "https://soundshare.app/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: title,
+            item: pageUrl,
+          },
+        ],
+      },
+      faqStructuredData,
+    ],
+  }
 
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <main className="flex-1">
         <section className="bg-gradient-to-b from-secondary/50 to-background py-12 md:py-20">
@@ -149,6 +189,10 @@ export function SEOGuideLayout({
 }
 
 export const coreRelatedGuides = [
+  {
+    title: "Sound share on Mac",
+    href: "/sound-share",
+  },
   {
     title: "How to connect two AirPods to one Mac",
     href: "/connect-two-airpods-to-mac",

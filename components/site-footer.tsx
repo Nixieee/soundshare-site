@@ -2,6 +2,10 @@ import Link from "next/link"
 
 const guides = [
   {
+    title: "Sound share on Mac",
+    href: "/sound-share",
+  },
+  {
     title: "Connect two AirPods to Mac",
     href: "/connect-two-airpods-to-mac",
   },

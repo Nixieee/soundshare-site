@@ -40,6 +40,7 @@ export default function AudioSharingOnMacPage() {
       eyebrow="Mac audio sharing"
       title="Audio Sharing on Mac: share sound with two headphones"
       description="iPhone and iPad users know AirPods Audio Sharing. SoundShare gives Mac users a dedicated way to share audio from one Mac with multiple Bluetooth listeners."
+      pathname="/audio-sharing-on-mac/"
       faqs={faqs}
       relatedGuides={coreRelatedGuides.filter((guide) => guide.href !== "/audio-sharing-on-mac")}
     >

@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   metadataBase: new URL('https://soundshare.app'),
   title: {
-    default: 'SoundShare - Connect Multiple AirPods to One Mac',
+    default: 'SoundShare - Share Audio on Mac with Two AirPods',
     template: '%s | SoundShare',
   },
   description:
-    'SoundShare helps you connect two AirPods or multiple Bluetooth headphones to one Mac with synchronized system-wide audio for music, movies, calls, and podcasts.',
+    'SoundShare is a Mac audio sharing app for connecting two AirPods or multiple Bluetooth headphones to one Mac with synchronized sound for movies, music, calls, and podcasts.',
   alternates: {
     canonical: '/',
   },
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://soundshare.app/',
     siteName: 'SoundShare',
-    title: 'SoundShare - Connect Multiple AirPods to One Mac',
+    title: 'SoundShare - Share Audio on Mac with Two AirPods',
     description:
-      'Use SoundShare to share Mac audio with two AirPods or multiple Bluetooth headphones at the same time.',
+      'Share Mac audio with two AirPods or multiple Bluetooth headphones at the same time.',
     images: [
       {
         url: '/soundshare-hero-1200.jpg',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SoundShare - Connect Multiple AirPods to One Mac',
+    title: 'SoundShare - Share Audio on Mac with Two AirPods',
     description:
       'Share Mac audio with two AirPods or multiple Bluetooth headphones at the same time.',
     images: ['/soundshare-hero-1200.jpg'],
@@ -67,6 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="apple-itunes-app" content="app-id=6742040464" />
         <link
           rel="preload"
           as="image"

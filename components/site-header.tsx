@@ -15,13 +15,16 @@ export function SiteHeader() {
           </Link>
         </div>
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="#features" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link href="/#features" className="text-sm font-medium transition-colors hover:text-primary">
             Features
           </Link>
-          <Link href="#how-it-works" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link href="/#how-it-works" className="text-sm font-medium transition-colors hover:text-primary">
             How It Works
           </Link>
-          <Link href="#faq" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link href="/#guides" className="text-sm font-medium transition-colors hover:text-primary">
+            Guides
+          </Link>
+          <Link href="/#faq" className="text-sm font-medium transition-colors hover:text-primary">
             FAQ
           </Link>
         </nav>
