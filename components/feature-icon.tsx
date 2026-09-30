@@ -2,7 +2,7 @@ export type FeatureIconName = "headphones" | "volume" | "battery" | "menu" | "ma
 
 export function FeatureIcon({ name }: { name: FeatureIconName }) {
   return (
-    <svg className={`feature-icon feature-icon-${name}`} width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg className={`simple-feature-icon simple-feature-icon-${name}`} width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {name === "headphones" && <>
         <path className="headphone-band" d="M3 14v-3a9 9 0 0 1 18 0v3" />
         <rect className="headphone-left" x="3" y="12" width="4" height="9" rx="2" />

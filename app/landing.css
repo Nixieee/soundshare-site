@@ -52,13 +52,13 @@
 .simple-feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 24px; max-width: 800px; margin: 0 auto; }
 .simple-feature-grid > div { display: flex; flex-direction: column; align-items: center; gap: 16px; }
 .simple-feature-grid svg { color: #8479ba; }
-.feature-icon { overflow: visible; }
-.feature-icon path, .feature-icon rect, .feature-icon g { transform-box: fill-box; transform-origin: center; }
+.simple-feature-icon { overflow: visible; }
+.simple-feature-icon path, .simple-feature-icon rect, .simple-feature-icon g { transform-box: fill-box; transform-origin: center; }
 .battery-cell-3, .battery-cell-4, .menu-popover, .mac-glint { opacity: 0; }
 .menu-popover { transform: translateY(-2px) scale(.95); transform-origin: top right; }
 /* Part-level hover transitions reverse smoothly, including on a quick re-entry. */
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .feature-icon path, .feature-icon rect, .feature-icon g { transition: transform 250ms cubic-bezier(.23, 1, .32, 1), opacity 200ms ease; }
+  .simple-feature-icon path, .simple-feature-icon rect, .simple-feature-icon g { transition: transform 250ms cubic-bezier(.23, 1, .32, 1), opacity 200ms ease; }
   .simple-feature:hover .headphone-band { transform: translateY(-1px); }
   .simple-feature:hover .headphone-left { transform: translateX(-1px) rotate(8deg); }
   .simple-feature:hover .headphone-right { transform: translateX(1px) rotate(-8deg); }
