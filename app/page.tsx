@@ -1,72 +1,67 @@
-import { SiteHeader } from "@/components/site-header"
+import type { Metadata } from "next"
+
+import { SimpleFeatures } from "@/components/simple-features"
 import { HeroSection } from "@/components/hero-section"
-import { FeaturesSection } from "@/components/features-section"
-import { HowItWorksSection } from "@/components/how-it-works-section"
-import { PricingSection } from "@/components/pricing-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
-import { FAQSection } from "@/components/faq-section"
-import { CTASection } from "@/components/cta-section"
 import { SiteFooter } from "@/components/site-footer"
-import { GuideLinksSection } from "@/components/guide-links-section"
+import { SiteHeader } from "@/components/site-header"
+import { APP_STORE_URL, APP_VERSION, createPageMetadata, SITE_URL } from "@/lib/site"
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Mac Audio Sharing for Two AirPods & Headphones",
+  description: "Use SoundShare to listen together on two AirPods or multiple Bluetooth headphones from one Mac, with individual volume and no subscription.",
+  pathname: "/",
+})
 
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "SoftwareApplication",
-      "@id": "https://soundshare.app/#app",
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
       name: "SoundShare",
-      applicationCategory: "MultimediaApplication",
-      operatingSystem: "macOS",
-      url: "https://soundshare.app/",
-      downloadUrl: "https://apps.apple.com/us/app/soundshare-audio-sharing/id6742040464",
-      description:
-        "SoundShare is a macOS app that helps users connect two AirPods or multiple Bluetooth headphones to one Mac with synchronized system-wide audio.",
-      offers: {
-        "@type": "Offer",
-        availability: "https://schema.org/InStock",
-        url: "https://apps.apple.com/us/app/soundshare-audio-sharing/id6742040464",
+      url: `${SITE_URL}/`,
+      founder: {
+        "@type": "Person",
+        name: "Nikolay Kalchev",
+        url: `${SITE_URL}/about/`,
       },
+      sameAs: [APP_STORE_URL],
+      logo: `${SITE_URL}/apple-touch-icon.png`,
     },
     {
       "@type": "WebSite",
-      "@id": "https://soundshare.app/#website",
+      "@id": `${SITE_URL}/#website`,
       name: "SoundShare",
-      url: "https://soundshare.app/",
-      description:
-        "SoundShare helps Mac users share audio with two AirPods or multiple Bluetooth headphones.",
-      publisher: {
-        "@id": "https://soundshare.app/#app",
-      },
+      url: `${SITE_URL}/`,
+      publisher: { "@id": `${SITE_URL}/#organization` },
     },
     {
-      "@type": "FAQPage",
-      "@id": "https://soundshare.app/#faq",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "How do I connect two AirPods to one MacBook?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Install SoundShare, pair both AirPods with your Mac, open SoundShare, select the connected devices, and enable audio sharing. SoundShare manages synchronized playback so both listeners hear the same Mac audio.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Can I use two Bluetooth headphones at the same time on Mac?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. SoundShare lets you play Mac audio through multiple Bluetooth headphones at the same time, including two AirPods, AirPods plus Beats, or other Bluetooth earbuds and speakers.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Does SoundShare work with Spotify, YouTube, Netflix, and Apple Music?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. SoundShare works system-wide with Mac audio, so shared listening works with music, video, podcast, browser, and media apps.",
-          },
-        },
+      "@type": "SoftwareApplication",
+      "@id": `${SITE_URL}/#app`,
+      name: "SoundShare - Audio Sharing",
+      applicationCategory: "UtilitiesApplication",
+      operatingSystem: "macOS 14 or later",
+      softwareVersion: APP_VERSION,
+      url: `${SITE_URL}/`,
+      downloadUrl: APP_STORE_URL,
+      image: `${SITE_URL}/opengraph-image`,
+      screenshot: `${SITE_URL}/images/product/soundshare-volumes-dark.webp`,
+      description: "A macOS menu-bar app for sharing one Mac audio output across two AirPods or multiple Bluetooth headphones.",
+      author: { "@id": `${SITE_URL}/#organization` },
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: APP_STORE_URL,
+        description: "Free download with a 30-minute trial; optional lifetime access is sold as an in-app purchase. Regional pricing may vary.",
+      },
+      featureList: [
+        "Multiple Bluetooth audio outputs",
+        "Individual device volume controls",
+        "Bluetooth battery information when available",
+        "macOS drift compensation",
+        "Previous output restoration",
       ],
     },
   ],
@@ -74,22 +69,14 @@ const structuredData = {
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+    <div className="simple-home flex min-h-screen flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <SiteHeader />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <HeroSection />
-        <FeaturesSection />
-        <HowItWorksSection />
-        <GuideLinksSection />
-        <TestimonialsSection />
-        <FAQSection />
-        <CTASection />
+        <SimpleFeatures />
       </main>
       <SiteFooter />
     </div>
-  );
+  )
 }

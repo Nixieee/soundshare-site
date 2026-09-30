@@ -2,9 +2,7 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  turbopack: { root: __dirname },
   images: { unoptimized: true },
 };
 

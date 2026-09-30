@@ -33,3 +33,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local SEO audit cache
+.seo-cache/
+
+# local visual-audit captures
+/screenshots/

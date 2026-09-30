@@ -73,8 +73,18 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Lint, type-check, and audit
+        run: |
+          npm run lint
+          npm run typecheck
+          npm audit --audit-level=moderate
       - name: Build with Next.js
+        env:
+          NEXT_PUBLIC_APP_STORE_PROVIDER_TOKEN: ${{ secrets.APP_STORE_PROVIDER_TOKEN }}
+          NEXT_PUBLIC_PLAUSIBLE_SCRIPT_URL: ${{ secrets.PLAUSIBLE_SCRIPT_URL }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Verify exported SEO and local links
+        run: npm run verify:seo
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -1,57 +1,19 @@
 import './globals.css';
+import './landing.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme-provider';
-
-const inter = Inter({ subsets: ['latin'] });
+import { APP_STORE_URL, SITE_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://soundshare.app'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'SoundShare - Share Audio on Mac with Two AirPods',
+    default: 'SoundShare — Share Mac Audio Across Multiple Headphones',
     template: '%s | SoundShare',
   },
-  description:
-    'SoundShare is a Mac audio sharing app for connecting two AirPods or multiple Bluetooth headphones to one Mac with synchronized sound for movies, music, calls, and podcasts.',
-  alternates: {
-    canonical: '/',
-  },
-  keywords: [
-    'connect multiple AirPods to Mac',
-    'connect two AirPods to one MacBook',
-    'how to connect two AirPods to one MacBook',
-    'how to connect multiple AirPods to Mac',
-    'connect two Bluetooth headphones on Mac',
-    'play audio through multiple Bluetooth devices Mac',
-    'audio sharing macOS',
-    'share audio on Mac',
-    'macOS audio sharing app',
-    'multi output audio Mac',
-    'Bluetooth audio splitter Mac',
-  ],
-  openGraph: {
-    type: 'website',
-    url: 'https://soundshare.app/',
-    siteName: 'SoundShare',
-    title: 'SoundShare - Share Audio on Mac with Two AirPods',
-    description:
-      'Share Mac audio with two AirPods or multiple Bluetooth headphones at the same time.',
-    images: [
-      {
-        url: '/soundshare-hero-1200.jpg',
-        width: 1200,
-        height: 780,
-        alt: 'SoundShare macOS app for sharing audio with multiple Bluetooth devices',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'SoundShare - Share Audio on Mac with Two AirPods',
-    description:
-      'Share Mac audio with two AirPods or multiple Bluetooth headphones at the same time.',
-    images: ['/soundshare-hero-1200.jpg'],
-  },
+  description: 'SoundShare is a macOS menu-bar app for sharing one Mac audio output across two AirPods or multiple Bluetooth headphones.',
+  applicationName: 'SoundShare',
+  authors: [{ name: 'Nikolay Kalchev', url: `${SITE_URL}/about/` }],
+  creator: 'Nikolay Kalchev',
+  publisher: 'SoundShare',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
@@ -64,27 +26,28 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const providerToken = process.env.NEXT_PUBLIC_APP_STORE_PROVIDER_TOKEN;
+  const analyticsScriptUrl = process.env.NEXT_PUBLIC_PLAUSIBLE_SCRIPT_URL;
+  const affiliateData = providerToken ? `, affiliate-data=pt=${providerToken}&ct=smart-banner&mt=12` : '';
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="apple-itunes-app" content="app-id=6742040464" />
-        <link
-          rel="preload"
-          as="image"
-          href="/soundshare-hero-1200.webp"
-          imageSrcSet="/soundshare-hero-800.webp 800w, /soundshare-hero-1200.webp 1200w, /soundshare-hero-1600.webp 1600w"
-          imageSizes="(max-width: 1023px) min(90vw, 350px), 600px"
-        />
+        <meta name="apple-itunes-app" content={`app-id=6742040464${affiliateData}, app-argument=${APP_STORE_URL}`} />
+        {analyticsScriptUrl ? (
+          <>
+            <script dangerouslySetInnerHTML={{ __html: "window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}" }} />
+            <script async src={analyticsScriptUrl} />
+          </>
+        ) : null}
       </head>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+      <body className="font-sans">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "try{var t=localStorage.getItem('soundshare-theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d);document.documentElement.style.colorScheme=d?'dark':'light'}catch(e){}",
+          }}
+        />
+        {children}
       </body>
     </html>
   );

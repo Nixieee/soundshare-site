@@ -1,100 +1,119 @@
-import type { Metadata } from "next"
-
 import { coreRelatedGuides, SEOGuideLayout } from "@/components/seo-guide-layout"
+import { APPLE_AGGREGATE_SETTINGS_GUIDE, APPLE_BLUETOOTH_GUIDE, createPageMetadata } from "@/lib/site"
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Connect Multiple Bluetooth Headphones to a Mac",
   description:
-    "Use SoundShare to play Mac audio through multiple Bluetooth headphones, AirPods, earbuds, or speakers at the same time.",
-  alternates: {
-    canonical: "/connect-multiple-bluetooth-headphones-to-mac/",
-  },
-}
+    "Connect multiple Bluetooth headphones to one Mac with SoundShare, balance each listener, and understand device formats, drift, battery, and latency limits.",
+  pathname: "/connect-multiple-bluetooth-headphones-to-mac/",
+})
 
 const faqs = [
   {
-    question: "Can a Mac play audio through multiple Bluetooth headphones?",
+    question: "Can a Mac play through multiple Bluetooth headphones?",
     answer:
-      "Yes. SoundShare is made to share Mac audio with multiple Bluetooth headphones at the same time.",
+      "Yes. After macOS connects the headphones, SoundShare can select multiple available outputs for one shared-listening session.",
   },
   {
-    question: "Can I mix AirPods, Beats, Sony, Bose, and other headphones?",
+    question: "Can I mix AirPods with non-Apple headphones?",
     answer:
-      "SoundShare is designed for mixed Bluetooth audio setups. Compatibility and latency can vary depending on the exact headphones and Mac.",
+      "SoundShare is not limited to one brand. Compatibility depends on whether macOS exposes each device as an output and whether the selected devices support a workable shared audio format.",
   },
   {
-    question: "Can I use Bluetooth speakers too?",
+    question: "Does SoundShare support Bluetooth speakers?",
     answer:
-      "SoundShare is designed for Bluetooth audio devices, including headphones, earbuds, and speakers, depending on how those devices behave with your Mac.",
+      "A Bluetooth speaker can be selected when macOS exposes it as a compatible audio output. The experience may differ from headphones because different hardware can have noticeably different inherent latency.",
   },
   {
-    question: "How do I get the best sync?",
+    question: "Why does one device sound later than another?",
     answer:
-      "Keep devices near the Mac, charge them first, disconnect unused Bluetooth accessories, and use similar headphones when possible.",
+      "Bluetooth devices buffer audio differently. SoundShare compensates for clock drift, but it cannot make two models with very different built-in latency physically identical.",
   },
 ]
 
 export default function ConnectMultipleBluetoothHeadphonesPage() {
   return (
     <SEOGuideLayout
-      eyebrow="Bluetooth audio on Mac"
-      title="How to connect multiple Bluetooth headphones to a Mac"
-      description="Pairing multiple Bluetooth devices is not the same as playing synchronized audio through all of them. SoundShare gives Mac users a clearer way to share one audio stream with multiple Bluetooth headphones."
+      eyebrow="Mixed headphone setups"
+      title="Connect multiple Bluetooth headphones to a Mac"
+      description="SoundShare is not limited to matching AirPods. If macOS exposes your connected headphones as audio outputs, the app can bring compatible devices into one shared listening session."
       pathname="/connect-multiple-bluetooth-headphones-to-mac/"
+      demoStage="discover"
       faqs={faqs}
+      sources={[
+        {
+          title: "Apple: Connect a Bluetooth device with your Mac",
+          href: APPLE_BLUETOOTH_GUIDE,
+          note: "Apple's current pairing and connection guidance for Bluetooth outputs.",
+        },
+        {
+          title: "Apple: Set aggregate-device sample rate and drift correction",
+          href: APPLE_AGGREGATE_SETTINGS_GUIDE,
+          note: "Why shared devices need a common sample rate and compensation for independent clocks.",
+        },
+      ]}
+      verificationNote="Compatibility logic reviewed against SoundShare 2.2.1 on a MacBook Pro (M2 Pro), macOS 26.5.2. No untested headphone model is presented as verified."
       relatedGuides={coreRelatedGuides.filter(
-        (guide) => guide.href !== "/connect-multiple-bluetooth-headphones-to-mac"
+        (guide) => guide.href !== "/connect-multiple-bluetooth-headphones-to-mac/"
       )}
     >
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold tracking-tighter liquid-blue-text">
-          Why this is difficult on macOS
-        </h2>
-        <p className="leading-7 text-muted-foreground">
-          macOS can remember and connect to many Bluetooth accessories, but the normal sound output
-          picker is built around choosing one output device. When two people want to listen from one
-          Mac, you need a way to route and synchronize the same audio across more than one device.
+      <section>
+        <h2>Connect the headphones first, then select them in SoundShare</h2>
+        <ol>
+          <li>Pair every headphone with the Mac in System Settings → Bluetooth.</li>
+          <li>Make sure each device says “Connected” and is not actively attached to another nearby device.</li>
+          <li>Open SoundShare and select the outputs you want to hear.</li>
+          <li>Start the session and set a comfortable volume for each device.</li>
+        </ol>
+        <p>
+          The macOS connection is the prerequisite; SoundShare is the layer that makes those outputs
+          useful together for a film, song, podcast, or browser video.
         </p>
       </section>
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold tracking-tighter liquid-blue-text">
-          Use SoundShare for multiple Bluetooth headphones
-        </h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          {[
-            "Pair each Bluetooth headphone, earbud, or speaker with the Mac.",
-            "Open SoundShare and choose the devices you want to use.",
-            "Start audio sharing from the app.",
-            "Play sound from Apple Music, Spotify, YouTube, Netflix, podcasts, or browser tabs.",
-          ].map((item) => (
-            <div key={item} className="rounded-lg border border-primary/20 bg-card p-5 text-muted-foreground">
-              {item}
-            </div>
-          ))}
+      <section>
+        <h2>What determines compatibility?</h2>
+        <p>
+          SoundShare asks CoreAudio for the output devices and formats that macOS currently exposes.
+          A combination is most likely to work when every device stays connected and supports a
+          compatible sample rate. That is more accurate than promising a brand list: firmware,
+          macOS, and even the active Bluetooth profile can change what a device reports.
+        </p>
+        <div className="not-prose mt-5 rounded-2xl border border-amber-300 bg-amber-50 p-5 text-sm leading-6 text-amber-950 dark:border-amber-900 dark:bg-amber-950/35 dark:text-amber-100">
+          SoundShare routes output audio only. If a headset switches into a call or microphone mode,
+          its available audio format can change. For shared listening, keep microphone input on a
+          separate device when possible.
         </div>
       </section>
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold tracking-tighter liquid-blue-text">
-          Supported listening setups
-        </h2>
-        <p className="leading-7 text-muted-foreground">
-          SoundShare is useful for AirPods, AirPods Pro, Beats, Bluetooth earbuds, Bluetooth
-          headphones, and Bluetooth speakers. It is especially helpful when two people want to watch
-          a movie on a MacBook, listen to music while traveling, or share a podcast without disturbing
-          people nearby.
+      <section>
+        <h2>Mixed models versus matching models</h2>
+        <p>
+          You can try mixed devices, but each Bluetooth model has its own buffering and inherent
+          latency. SoundShare uses drift compensation so their clocks do not gradually separate.
+          Matching or similar models may still feel closer because their built-in delays are more
+          alike from the start.
         </p>
       </section>
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold tracking-tighter liquid-blue-text">
-          A realistic note about Bluetooth latency
-        </h2>
-        <p className="leading-7 text-muted-foreground">
-          Bluetooth latency can vary depending on the headphones model, codec behavior, Mac model,
-          battery level, and wireless environment. SoundShare is built to keep the connected devices
-          synchronized, but any Bluetooth setup can still have some inherent delay.
+      <section>
+        <h2>Improve stability before a long session</h2>
+        <ul>
+          <li>Charge every headphone and keep it close to the Mac.</li>
+          <li>Disconnect headphones from phones or tablets that may reclaim the connection.</li>
+          <li>Turn off Bluetooth accessories you do not need if the wireless environment is crowded.</li>
+          <li>Connect all outputs before opening or restarting SoundShare.</li>
+          <li>Set individual volume in SoundShare instead of repeatedly changing the system output.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Troubleshooting a device that drops out</h2>
+        <p>
+          Stop the SoundShare session, reconnect the missing device in Bluetooth settings, and then
+          reopen the app so it can refresh the current CoreAudio device list. If the same combination
+          fails repeatedly, test each device separately; that distinguishes a connection problem from
+          an incompatible multi-device format.
         </p>
       </section>
     </SEOGuideLayout>

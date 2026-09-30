@@ -1,37 +1,18 @@
-"use client"
+import { AppIcon } from "@/components/app-icon"
+import { AppStoreLink } from "@/components/app-store-badge"
 
-import Link from "next/link"
-
-import { AppStoreBadge } from "@/components/app-store-badge"
-import { ThemeToggle } from "@/components/theme-toggle"
-
-export function SiteHeader() {
+export function SiteHeader({ showStoreBadge = true }: { showStoreBadge?: boolean }) {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="font-bold text-xl">SoundShare</span>
-          </Link>
-        </div>
-        <nav className="hidden md:flex items-center gap-6">
-          <Link href="/#features" className="text-sm font-medium transition-colors hover:text-primary">
-            Features
-          </Link>
-          <Link href="/#how-it-works" className="text-sm font-medium transition-colors hover:text-primary">
-            How It Works
-          </Link>
-          <Link href="/#guides" className="text-sm font-medium transition-colors hover:text-primary">
-            Guides
-          </Link>
-          <Link href="/#faq" className="text-sm font-medium transition-colors hover:text-primary">
-            FAQ
-          </Link>
+    <header className="simple-header">
+      <a href="#main-content" className="skip-link">Skip to content</a>
+      <div className="site-shell simple-header-inner">
+        {/* Native page loads reset scroll reliably on the static host. */}
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+        <a href="/" className="simple-brand"><AppIcon size={34} priority /><span>SoundShare</span></a>
+        <nav aria-label="Main navigation">
+          <a href="/faq/">FAQs</a>
+          {showStoreBadge ? <AppStoreLink className="header-download" campaign="site-header" placement="header">Download<span className="header-mac-label"> for Mac</span></AppStoreLink> : <a href="/support/">Support</a>}
         </nav>
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <AppStoreBadge size="small" priority />
-        </div>
       </div>
     </header>
   )

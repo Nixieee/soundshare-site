@@ -1,55 +1,41 @@
-import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 
 const guides = [
   {
-    title: "Sound share on Mac",
-    description: "A direct answer for people searching how to share sound from one Mac.",
-    href: "/sound-share",
-  },
-  {
     title: "Connect two AirPods to one Mac",
-    description: "A practical guide for sharing one MacBook's audio with two AirPods.",
-    href: "/connect-two-airpods-to-mac",
-  },
-  {
-    title: "Use multiple Bluetooth headphones on Mac",
-    description: "How SoundShare helps with two headphones, AirPods, Beats, speakers, and earbuds.",
-    href: "/connect-multiple-bluetooth-headphones-to-mac",
+    description: "Pair both sets, select them in SoundShare, start listening, and fix the most common connection problems.",
+    href: "/connect-two-airpods-to-mac/",
   },
   {
     title: "Audio sharing on Mac",
-    description: "What Mac users can do when they want the AirPods Audio Sharing experience from iPhone.",
-    href: "/audio-sharing-on-mac",
+    description: "Understand what Mac audio sharing does, where SoundShare fits, and what Bluetooth limitations to expect.",
+    href: "/audio-sharing-on-mac/",
   },
   {
-    title: "Play Mac audio through multiple devices",
-    description: "Compare SoundShare with macOS Audio MIDI Setup and Multi-Output Device.",
-    href: "/mac-audio-output-multiple-devices",
+    title: "Use multiple Bluetooth headphones",
+    description: "Plan a mixed-headphone setup and learn what affects compatibility, battery reporting, and latency.",
+    href: "/connect-multiple-bluetooth-headphones-to-mac/",
+  },
+  {
+    title: "Mac audio through multiple devices",
+    description: "See why repeating manual multi-output setup gets frustrating and how SoundShare simplifies the session.",
+    href: "/mac-audio-output-multiple-devices/",
+  },
+  {
+    title: "SoundShare vs Multi-Output Device",
+    description: "Compare setup effort, individual volume, battery information, cleanup, and cost before choosing.",
+    href: "/soundshare-vs-multi-output-device/",
   },
 ]
 
 export function GuideLinksSection() {
   return (
-    <section id="guides" className="py-16 md:py-24">
-      <div className="container px-4 md:px-6">
-        <div className="mx-auto max-w-3xl space-y-3 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter md:text-4xl liquid-blue-text">
-            Mac audio sharing guides
-          </h2>
-          <p className="text-muted-foreground md:text-lg">
-            Helpful answers for people trying to share sound, connect two AirPods, or play audio through multiple devices on macOS.
-          </p>
-        </div>
-        <div className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-2">
-          {guides.map((guide) => (
-            <Link
-              key={guide.href}
-              href={guide.href}
-              className="rounded-lg border border-primary/20 bg-card p-5 transition-colors hover:border-primary/50"
-            >
-              <h3 className="font-semibold liquid-blue-text">{guide.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">{guide.description}</p>
-            </Link>
+    <section id="guides" className="guides-section" aria-labelledby="guides-title">
+      <div className="site-shell guides-grid">
+        <div className="section-heading"><p className="eyebrow">The listening library</p><h2 id="guides-title">Your setup.<br /><span>Made simpler.</span></h2><p>Practical guides for two AirPods, mixed headphones, and getting more from your Mac’s audio.</p></div>
+        <div className="guide-links">
+          {guides.map((guide, index) => (
+            <a key={guide.href} href={guide.href} className="guide-link"><span className="guide-number">0{index + 1}</span><div><h3>{guide.title}</h3><p>{guide.description}</p></div><ArrowUpRight size={20} aria-hidden="true" /></a>
           ))}
         </div>
       </div>
